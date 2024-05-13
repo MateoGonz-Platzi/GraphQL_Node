@@ -1,3 +1,8 @@
+# Curso
+
+https://platzi.com/cursos/nodejs-graphql/
+
+
 # Install
 
 ```sh
