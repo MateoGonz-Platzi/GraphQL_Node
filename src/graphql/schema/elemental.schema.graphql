@@ -9,15 +9,4 @@ type Query {
   getId: ID
 
   getNumbers(numbers: [Int!]!): [Int]
-
-  getProduct: Product
-}
-
-type Product {
-  id: ID!
-  name: String!
-  price: Float!
-  description: String!
-  image: String!
-  createdAt: String!
 }
