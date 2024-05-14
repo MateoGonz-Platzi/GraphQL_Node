@@ -1,6 +1,6 @@
 const { ApolloServer } = require('@apollo/server');
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require('@apollo/server-plugin-landing-page-graphql-playground');
-const { expressMiddleware  } = require('@apollo/server/express4');
+const { expressMiddleware } = require('@apollo/server/express4');
 
 const typeDefs = `
   type Query {
@@ -14,6 +14,18 @@ const typeDefs = `
     getId: ID,
 
     getNumbers(numbers: [Int!]!): [Int]
+
+    getProduct: Product
+
+  }
+
+  type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    description: String!
+    image: String!
+    createdAt: String!
   }
 `;
 
@@ -28,7 +40,18 @@ const resolvers = {
     getString: () => 'Word',
     getId: () => '1',
 
-    getNumbers: (_, args) => args.numbers
+    getNumbers: (_, args) => args.numbers,
+
+    getProduct: () => {
+      return {
+        id: '1',
+        name: 'Product 1',
+        price: 100,
+        description: 'This is a product',
+        image: 'https://placeimg.com/640/480/tech',
+        createdAt: new Date().toISOString()
+      }
+    }
   }
 }
 
